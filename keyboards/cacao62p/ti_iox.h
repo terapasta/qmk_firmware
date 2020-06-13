@@ -1,4 +1,4 @@
-/* Copyright 2019
+/* Copyright 2020
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,14 +22,27 @@
 #define ALL_LOW 0
 #define ALL_HIGH 0xFF
 
-void pca9555_init(uint8_t slave_addr);
+enum {
+    CMD_INPUT = 0,
+    CMD_OUTPUT,
+    CMD_INVERSION,
+    CMD_CONFIG,
+};
 
-void pca9555_set_config(uint8_t slave_addr, uint8_t port, uint8_t conf);
+typedef struct {
+    uint8_t address;
+    uint8_t num_port;
+    uint8_t cmd_shift;
+    uint16_t mask;
+} ti_iox_16bit;
 
-void pca9555_set_output(uint8_t slave_addr, uint8_t port, uint8_t conf);
+#define PCA9555(offset) { (0x40 | ((offset) << 1)), 2, 1, 0xFFFF }
+#define TCA9555(offset) { (0x40 | ((offset) << 1)), 2, 1, 0xFFFF }
+#define PCA9554(offset) { (0x40 | ((offset) << 1)), 1, 0, 0x00FF }
+#define TCA9554(offset) { (0x40 | ((offset) << 1)), 1, 0, 0x00FF }
+#define PCA9536() { 0x82, 1, 0, 0x000F }
 
-uint8_t pca9555_readPins(uint8_t slave_addr, uint8_t port);
-
-
+void ti_iox_init(const ti_iox_16bit *slaves, uint8_t count);
+uint16_t ti_iox_readPins(const ti_iox_16bit *slave);
 
 #endif //QMK_FIRMWARE_TI_IOX_16BIT_H

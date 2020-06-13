@@ -61,9 +61,9 @@ BOOTLOADER = caterina
 # Build Options
 #   change yes to no to disable
 #
-BOOTMAGIC_ENABLE = lite     # Virtual DIP switch configuration(+1000)
+BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE = yes       # Mouse keys(+4700)
-EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
+EXTRAKEY_ENABLE = no        # Audio control and System control(+450)
 CONSOLE_ENABLE = yes        # Console for debug(+400)
 COMMAND_ENABLE = yes        # Commands for debug and configuration
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
@@ -80,9 +80,9 @@ FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 HD44780_ENABLE = no 		# Enable support for HD44780 based LCDs (+400)
 
 # custom matrix setup
-CUSTOM_MATRIX = yes
-SRC = i2c_master.c custom_matrix_helper.c pca9555.c matrix.c
+CUSTOM_MATRIX = lite
+SRC += ti_iox.c matrix.c
 
 EXTRAFLAGS += -flto
 
-LAYOUTS = 75_ansi 75_iso
+LAYOUTS = ansi iso
