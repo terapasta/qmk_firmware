@@ -16,6 +16,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/io.h>
+#include <i2c_master.h>
 #include <string.h>
 #include "matrix.h"
 #include "ti_iox.h"

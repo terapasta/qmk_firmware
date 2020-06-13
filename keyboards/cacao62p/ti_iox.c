@@ -16,13 +16,7 @@
 
 #include <i2c_master.h>
 #include "ti_iox.h"
-
-enum {
-    CMD_INPUT = 0,
-    CMD_OUTPUT,
-    CMD_INVERSION,
-    CMD_CONFIG,
-};
+#include "debug.h"
 
 #define TIMEOUT 100
 
@@ -33,7 +27,7 @@ void ti_iox_init(const ti_iox_16bit *slaves, uint8_t count) {
         uint8_t num = slaves[i].num_port;
         uint8_t addr = slaves[i].address;
         for (uint8_t j = 0; j < num; j++) {
-            uint8_t cmd = CMD_CONFIG << slaves[i].cmd_shift + j;
+            uint8_t cmd = (CMD_CONFIG << slaves[i].cmd_shift) + j;
             uint8_t conf = ALL_INPUT;
             i2c_status_t ret = i2c_writeReg(addr, cmd, &conf, sizeof(conf), TIMEOUT);
             if (ret != I2C_STATUS_SUCCESS) {
@@ -54,7 +48,7 @@ uint16_t ti_iox_readPins(const ti_iox_16bit *slave) {
     }
 
     uint16_t result = 0;
-    for (i = slave->num_port - 1, i >= 0; i--) {
+    for (uint8_t i = slave->num_port - 1; i >= 0; i--) {
         result <<= 8;
         result |= data[i];
     }
