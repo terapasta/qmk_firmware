@@ -32,15 +32,14 @@ enum {
 typedef struct {
     uint8_t address;
     uint8_t num_port;
-    uint8_t cmd_shift;
     uint16_t mask;
 } ti_iox_16bit;
 
-#define PCA9555(offset) { (0x40 | ((offset) << 1)), 2, 1, 0xFFFF }
-#define TCA9555(offset) { (0x40 | ((offset) << 1)), 2, 1, 0xFFFF }
-#define PCA9554(offset) { (0x40 | ((offset) << 1)), 1, 0, 0x00FF }
-#define TCA9554(offset) { (0x40 | ((offset) << 1)), 1, 0, 0x00FF }
-#define PCA9536() { 0x82, 1, 0, 0x000F }
+#define PCA9555(offset) { 0x20 | offset, 2, 0xFFFF }
+#define TCA9555(offset) { 0x20 | offset, 2, 0xFFFF }
+#define PCA9554(offset) { 0x20 | offset, 1, 0x00FF }
+#define TCA9554(offset) { 0x20 | offset, 1, 0x00FF }
+#define PCA9536() { 0x41, 1, 0x000F }
 
 void ti_iox_init(const ti_iox_16bit *slaves, uint8_t count);
 uint16_t ti_iox_readPins(const ti_iox_16bit *slave);

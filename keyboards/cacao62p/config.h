@@ -235,9 +235,13 @@
 */
 
 /* Bootmagic Lite key configuration */
+/* Bootmagic Lite key configuration */
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
 
 // LTO options
-#define NO_ACTION_MACRO
-#define NO_ACTION_FUNCTION
+//#define NO_ACTION_MACRO
+//#define NO_ACTION_FUNCTION
+
+#define DEBUG_ACTION
+#define USE_I2C

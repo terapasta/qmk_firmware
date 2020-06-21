@@ -16,7 +16,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/io.h>
-#include <i2c_master.h>
+#include <avr/i2c_master.h>
 #include <string.h>
 #include <quantum.h>
 #include "matrix.h"
@@ -33,27 +33,45 @@ static ti_iox_16bit expanders[MATRIX_ROWS] = {
     PCA9555(0x05)
 };
 
-void custom_matrix_init(void) {
-    static uint8_t initialized = 0;
-    if (!initialized) {
-        i2c_init();
-        initialized = 1;
-    }
-    // TODO: could check device connected
-    // i2c_start(SLAVE_TO_ADDR(slave) | I2C_WRITE);
-    // i2c_stop();
+static bool initialized = false;
+static bool initialized2 = false;
 
-    ti_iox_init(expanders, MATRIX_ROWS);
+void matrix_init_custom(void) {
+    debug_enable = true;
+    _delay_ms(50);
+
+    print("i2c initializing?\n");
+    if (!initialized) {
+        initialized = true;
+        i2c_init();
+        print("i2c initialized\n");
+        _delay_ms(100);
+    }
+
+    ti_iox_init(&expanders[0], MATRIX_ROWS);
+    xprintf("iox initialized: %d\n", initialized);
 }
 
-bool custom_matrix_scan(matrix_row_t current_matrix[]) {
+bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = false;
 
+    if (!initialized2) {
+        print("i2c initializing?\n");
+        initialized2 = true;
+        i2c_init();
+        print("i2c initialized\n");
+        _delay_ms(100);
+        ti_iox_init(&expanders[0], MATRIX_ROWS);
+        xprintf("iox initialized: %d\n", initialized);
+    }
+
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
+//        xprintf("read[%d/%d]\n", i, MATRIX_ROWS);
         matrix_row_t last_row = current_matrix[i];
         matrix_row_t current_row = ti_iox_readPins(&expanders[i]);
         current_matrix[i] = current_row;
         changed |= last_row != current_row;
+//        xprintf("row[%d]: %02X\n", i, current_row);
     }
 
     return changed;

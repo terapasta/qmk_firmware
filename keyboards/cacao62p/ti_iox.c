@@ -18,33 +18,38 @@
 #include "ti_iox.h"
 #include "debug.h"
 
-#define TIMEOUT 100
+#define TIMEOUT 1000
 
 void ti_iox_init(const ti_iox_16bit *slaves, uint8_t count) {
 
     // make all pins to input mode
+    xprintf("config\n");
     for (uint8_t i = 0; i < count; i++) {
         uint8_t num = slaves[i].num_port;
-        uint8_t addr = slaves[i].address;
+        uint8_t addr = slaves[i].address << 1;
+        xprintf("config addr: %02X\n", addr);
         for (uint8_t j = 0; j < num; j++) {
-            uint8_t cmd = (CMD_CONFIG << slaves[i].cmd_shift) + j;
+            uint8_t cmd = CMD_CONFIG * num + j;
             uint8_t conf = ALL_INPUT;
             i2c_status_t ret = i2c_writeReg(addr, cmd, &conf, sizeof(conf), TIMEOUT);
             if (ret != I2C_STATUS_SUCCESS) {
-                print("pca9555_set_config::FAILED\n");
+                xprintf("config FAILED: %d, addr: %02X, cmd: %02X conf: %d\n", ret, addr, cmd, conf);
+            } else {
+                xprintf("config SUCCEEDED: %d, addr: %02X, cmd: %02X conf: %d\n", ret, addr, cmd, conf);
             }
         }
     }
 }
 
 uint16_t ti_iox_readPins(const ti_iox_16bit *slave) {
-    uint8_t addr = slave->address;
-    uint8_t data[2] = { 0, 0 };     // num_port <= 2
-    uint8_t cmd = CMD_INPUT << slave->cmd_shift;
+    uint8_t addr = slave->address << 1;
+    uint8_t data[2] = { 0xff, 0xff };     // num_port <= 2
+    uint8_t cmd = CMD_INPUT * slave->num_port;
 
     i2c_status_t ret = i2c_readReg(addr, cmd, data, slave->num_port, TIMEOUT);
     if (ret != I2C_STATUS_SUCCESS) {
-        print("ti_iox_readPins::FAILED\n");
+//        xprintf("read FAILED: %d, addr: %02X, cmd: %02X\n", ret, addr, cmd);
+        return 0x0000;
     }
 
     uint16_t result = 0;
@@ -53,5 +58,5 @@ uint16_t ti_iox_readPins(const ti_iox_16bit *slave) {
         result |= data[i];
     }
 
-    return result & slave->mask;
+    return (~result) & slave->mask;
 }

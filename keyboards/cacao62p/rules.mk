@@ -33,7 +33,7 @@ HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
 
 # custom matrix setup
 CUSTOM_MATRIX = lite
-SRC += ti_iox.c matrix.c
+SRC += ti_iox.c matrix.c i2c_master.c
 
 EXTRAFLAGS += -flto
 
