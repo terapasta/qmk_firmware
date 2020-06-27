@@ -24,40 +24,25 @@
 #include "timer.h"
 #include "wait.h"
 
-#include "debug.h"
-
-
 #ifndef F_SCL
-#    define F_SCL 100000UL  // SCL frequency
+#    define F_SCL 400000UL  // SCL frequency
 #endif
 
 #define TWBR_val (((F_CPU / F_SCL) - 16) / 2)
 
-static uint8_t initialized = 0;
-
 void i2c_init(void) {
+    // Pro Micro
+    DDRE  &= ~(1<<PE6);
+    PORTE |=  (1<<PE6);
+    DDRD  &= ~(1<<PD2 | 1<<PD3 | 1<<PD4 | 1<<PD7);
+    PORTD |=  (1<<PD2 | 1<<PD3 | 1<<PD4 | 1<<PD7);
+    DDRC  &= ~(1<<PC6);
+    PORTC |=  (1<<PC6);
+    DDRB  &= ~(1<<PB4);
+    PORTB |=  (1<<PB4);
+
     TWSR = 0; /* no prescaler */
     TWBR = (uint8_t)TWBR_val;
-
-    xprintf("i2c_init TWBR_val: %d\n", TWBR_val);
-    initialized++;
-#ifdef __AVR_ATmega32A__
-    // set pull-up resistors on I2C bus pins
-    PORTC |= 0b11;
-
-
-    // enable TWI (two-wire interface)
-    TWCR |= (1 << TWEN);
-
-    // enable TWI interrupt and slave address ACK
-    TWCR |= (1 << TWIE);
-    TWCR |= (1 << TWEA);
-
-    xprintf("i2c_init TWCR: %d\n", TWCR);
-
-    initialized++;
-#endif
-    print("i2c_init done!");
 }
 
 i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
@@ -75,7 +60,6 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
 
     // check if the start condition was successfully transmitted
     if (((TW_STATUS & 0xF8) != TW_START) && ((TW_STATUS & 0xF8) != TW_REP_START)) {
-        // xprintf("i2c_start FAILED(%d) TW_STATUS: %d\n", initialized, TW_STATUS);
         return I2C_STATUS_ERROR;
     }
 
@@ -94,7 +78,6 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     // check if the device has acknowledged the READ / WRITE mode
     uint8_t twst = TW_STATUS & 0xF8;
     if ((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
-        xprintf("i2c_start FAILED(%d) TW_STATUS: %02X, TW_MT_SLA_ACK: %02X, TW_MR_SLA_ACK: %02X\n", initialized, TW_STATUS, TW_MT_SLA_ACK, TW_MR_SLA_ACK);
         return I2C_STATUS_ERROR;
     }
 
@@ -203,13 +186,11 @@ i2c_status_t i2c_writeReg(uint8_t devaddr, uint8_t regaddr, const uint8_t* data,
 i2c_status_t i2c_readReg(uint8_t devaddr, uint8_t regaddr, uint8_t* data, uint16_t length, uint16_t timeout) {
     i2c_status_t status = i2c_start(devaddr, timeout);
     if (status < 0) {
-        //xprintf("i2c_readReg i2c_start FAILED: %d, addr: %02X %02X\n", status, devaddr, regaddr);
         goto error;
     }
 
     status = i2c_write(regaddr, timeout);
     if (status < 0) {
-        xprintf("i2c_readReg i2c_write FAILED: %d, addr: %02X %02X\n", status, devaddr, regaddr);
         goto error;
     }
 
@@ -219,8 +200,6 @@ i2c_status_t i2c_readReg(uint8_t devaddr, uint8_t regaddr, uint8_t* data, uint16
         status = i2c_read_ack(timeout);
         if (status >= 0) {
             data[i] = status;
-        } else {
-            xprintf("i2c_readReg i2c_read_ack FAILED: %d, addr: %02X %02X\n", status, devaddr, regaddr);
         }
     }
 
@@ -228,8 +207,6 @@ i2c_status_t i2c_readReg(uint8_t devaddr, uint8_t regaddr, uint8_t* data, uint16
         status = i2c_read_nack(timeout);
         if (status >= 0) {
             data[(length - 1)] = status;
-        } else {
-            xprintf("i2c_readReg i2c_read_nack FAILED: %d, addr: %02X %02X\n", status, devaddr, regaddr);
         }
     }
 

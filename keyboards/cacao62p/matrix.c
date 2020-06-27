@@ -16,62 +16,44 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/io.h>
-#include <avr/i2c_master.h>
 #include <string.h>
 #include <quantum.h>
-#include "matrix.h"
-#include "ti_iox.h"
 
+#include "matrix.h"
+#include "modulo/atmega32u4/ti_xpa95xx/expander.h"
+#include "modulo/atmega32u4/i2c_master.h"
+
+#include "print.h"
 #include "debug.h"
 
 //_____CUSTOM MATRIX IMPLEMENTATION____________________________________________________
 
-static ti_iox_16bit expanders[MATRIX_ROWS] = {
+static expander expanders[MATRIX_ROWS] = {
     PCA9555(0x02),
     PCA9555(0x03),
     PCA9555(0x04),
     PCA9555(0x05)
 };
 
-static bool initialized = false;
-static bool initialized2 = false;
-
 void matrix_init_custom(void) {
     debug_enable = true;
+
     _delay_ms(50);
 
-    print("i2c initializing?\n");
-    if (!initialized) {
-        initialized = true;
-        i2c_init();
-        print("i2c initialized\n");
-        _delay_ms(100);
-    }
-
-    ti_iox_init(&expanders[0], MATRIX_ROWS);
-    xprintf("iox initialized: %d\n", initialized);
+    expander_init(&expanders[0], MATRIX_ROWS);
+    xprintf("iox initialized\n");
 }
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = false;
 
-    if (!initialized2) {
-        print("i2c initializing?\n");
-        initialized2 = true;
-        i2c_init();
-        print("i2c initialized\n");
-        _delay_ms(100);
-        ti_iox_init(&expanders[0], MATRIX_ROWS);
-        xprintf("iox initialized: %d\n", initialized);
-    }
-
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
-//        xprintf("read[%d/%d]\n", i, MATRIX_ROWS);
+        xprintf("read[%d/%d]\n", i, MATRIX_ROWS);
         matrix_row_t last_row = current_matrix[i];
-        matrix_row_t current_row = ti_iox_readPins(&expanders[i]);
+        matrix_row_t current_row = expander_readPins(&expanders[i]);
         current_matrix[i] = current_row;
         changed |= last_row != current_row;
-//        xprintf("row[%d]: %02X\n", i, current_row);
+        xprintf("row[%d]: %02X\n", i, current_row);
     }
 
     return changed;
