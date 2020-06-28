@@ -35,5 +35,6 @@ HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
 CUSTOM_MATRIX = lite
 SRC += matrix.c modulo/atmega32u4/i2c_master.c modulo/atmega32u4/ti_xpa95xx/expander.c
 
+EXTRAFLAGS += -flto
 #
 # LAYOUTS = ansi iso

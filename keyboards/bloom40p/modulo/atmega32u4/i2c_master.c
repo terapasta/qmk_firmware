@@ -24,8 +24,6 @@
 #include "timer.h"
 #include "wait.h"
 
-#include "debug.h"
-
 #ifndef F_CPU
 #    define F_CPU 16000000UL
 #endif
@@ -39,6 +37,14 @@ void i2c_init(void) {
     TWBR = (uint8_t)(((F_CPU / F_SCL) - 16) / 2);
 }
 
+#define i2c_wait(timeout) { \
+    while (!(TWCR & (1 << TWINT))) { \
+        if ((timeout != I2C_TIMEOUT_INFINITE) && ((timer_read() - timeout_timer) >= timeout)) { \
+            return I2C_STATUS_TIMEOUT; \
+        } \
+    } \
+}
+
 i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     // reset TWI control register
     TWCR = 0;
@@ -46,17 +52,10 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
 
     uint16_t timeout_timer = timer_read();
-    while (!(TWCR & (1 << TWINT))) {
-        uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_start wait %d msec\n", elapsed);
-        if (elapsed >= timeout) {
-            return I2C_STATUS_TIMEOUT;
-        }
-    }
+    i2c_wait(timeout);
 
     // check if the start condition was successfully transmitted
     if (((TW_STATUS & 0xF8) != TW_START) && ((TW_STATUS & 0xF8) != TW_REP_START)) {
-        dprint("i2c_start FAILED\n");
         return I2C_STATUS_ERROR;
     }
 
@@ -66,18 +65,11 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     TWCR = (1 << TWINT) | (1 << TWEN);
 
     timeout_timer = timer_read();
-    while (!(TWCR & (1 << TWINT))) {
-        uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_start(address) wait %d msec\n", elapsed);
-        if (elapsed >= timeout) {
-            return I2C_STATUS_TIMEOUT;
-        }
-    }
+    i2c_wait(timeout);
 
     // check if the device has acknowledged the READ / WRITE mode
     uint8_t twst = TW_STATUS & 0xF8;
     if ((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
-        dprint("i2c_start cannot address");
         return I2C_STATUS_ERROR;
     }
 
@@ -91,13 +83,7 @@ i2c_status_t i2c_write(uint8_t data, uint16_t timeout) {
     TWCR = (1 << TWINT) | (1 << TWEN);
 
     uint16_t timeout_timer = timer_read();
-    while (!(TWCR & (1 << TWINT))) {
-        uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_write wait %d msec\n", elapsed);
-        if (elapsed >= timeout) {
-            return I2C_STATUS_TIMEOUT;
-        }
-    }
+    i2c_wait(timeout);
 
     if ((TW_STATUS & 0xF8) != TW_MT_DATA_ACK) {
         return I2C_STATUS_ERROR;
@@ -111,13 +97,7 @@ int16_t i2c_read_ack(uint16_t timeout) {
     TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWEA);
 
     uint16_t timeout_timer = timer_read();
-    while (!(TWCR & (1 << TWINT))) {
-        uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_read_ack wait %d msec\n", elapsed);
-        if (elapsed >= timeout) {
-            return I2C_STATUS_TIMEOUT;
-        }
-    }
+    i2c_wait(timeout);
 
     // return received data from TWDR
     return TWDR;
@@ -128,13 +108,7 @@ int16_t i2c_read_nack(uint16_t timeout) {
     TWCR = (1 << TWINT) | (1 << TWEN);
 
     uint16_t timeout_timer = timer_read();
-    while (!(TWCR & (1 << TWINT))) {
-        uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_read_nack wait %d msec\n", elapsed);
-        if (elapsed >= timeout) {
-            return I2C_STATUS_TIMEOUT;
-        }
-    }
+    i2c_wait(timeout);
 
     // return received data from TWDR
     return TWDR;

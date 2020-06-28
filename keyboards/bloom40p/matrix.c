@@ -28,16 +28,20 @@
 //_____CUSTOM MATRIX IMPLEMENTATION____________________________________________________
 
 static expander expanders[MATRIX_ROWS] = {
+//    PCA9555(0x00),
+//    PCA9554(0x01),
+//    PCA9555(0x06),
+//    PCA9554(0x07)
     PCA9555(0x02),
-    PCA9555(0x03),
+    PCA9554(0x03),
     PCA9555(0x04),
-    PCA9555(0x05)
+    PCA9554(0x05)
 };
 
 void matrix_init_custom(void) {
     debug_enable = true;
 
-    // _delay_ms(50);
+    _delay_ms(50);
 
     expander_init(&expanders[0], MATRIX_ROWS);
     dprint("iox initialized\n");

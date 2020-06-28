@@ -23,8 +23,8 @@
 #define PRODUCT_ID      0x4084
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    ABplus Inc.
-#define PRODUCT         caca062%
-#define DESCRIPTION     ABplus cacao62%
+#define PRODUCT         bloom40p
+#define DESCRIPTION     ABplus bloom40p
 
 /* key matrix size */
 #define MATRIX_ROWS 4
