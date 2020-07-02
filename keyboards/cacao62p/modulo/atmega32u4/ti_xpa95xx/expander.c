@@ -30,7 +30,7 @@ void expander_init(const expander *slaves, uint8_t count) {
         for (uint8_t j = 0; j < num; j++) {
             uint8_t cmd = CMD_CONFIG * num + j;
             uint8_t conf = ALL_INPUT;
-            i2c_status_t ret = i2c_writeReg(addr, cmd, &conf, sizeof(conf), TIMEOUT);
+            i2c_status_t ret = i2c_writeReg(addr | TW_READ , cmd, &conf, sizeof(conf), TIMEOUT);
             if (ret != I2C_STATUS_SUCCESS) {
                 xprintf("config pins FAILED: %d, addr: %02X, cmd: %02X conf: %d\n", ret, addr, cmd, conf);
             } else {

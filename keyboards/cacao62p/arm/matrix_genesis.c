@@ -189,28 +189,16 @@ static matrix_row_t read_cols(uint8_t row)
 
     i2cStart(i2cDrivers[row], &i2ccfg);
 
-//    status = i2cMasterTransmit(i2cDrivers[row], addresses[row], &read_command, 1, NULL, 0);
-//
-//    if (MSG_OK != status) {
-//        i2cflags_t error_code;
-//        error_code = i2cGetErrors(i2cDrivers[row]);
-//        printf("I2C TX Error: %x\n", error_code);
-//        return (matrix_row_t)0;
-//    }
-//
     status = i2cMasterReceiveTimeout(i2cDrivers[row], addresses[row], matrix_row_read, 1, 3);
 
     i2cStop(i2cDrivers[row]);
     if (MSG_OK != status) {
-//        i2cflags_t error_code;
-//        error_code = i2cGetErrors(i2cDrivers[row]);
         printf("I2C RX Error: row: %d: %x\n",row, matrix_row_read[0]);
         return (matrix_row_t)0;
     }
 
 
     uint8_t low = ~matrix_row_read[0];
-//    uint8_t high = ~matrix_row_read[1];
 
     return low;
 }
