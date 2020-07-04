@@ -18,11 +18,13 @@
  */
 
 #include <avr/io.h>
+#include <avr/power.h>
 #include <util/twi.h>
+#include <avr/interrupt.h>
+#include <timer.h>
+#include <wait.h>
 
 #include "i2c_master.h"
-#include "timer.h"
-#include "wait.h"
 
 #include "debug.h"
 
@@ -37,6 +39,8 @@
 void i2c_init(void) {
     TWSR = 0; /* no prescaler */
     TWBR = (uint8_t)(((F_CPU / F_SCL) - 16) / 2);
+    power_twi_enable();
+    TWCR = (1 << TWEN);
 }
 
 i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
@@ -48,7 +52,6 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     uint16_t timeout_timer = timer_read();
     while (!(TWCR & (1 << TWINT))) {
         uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_start wait %d msec\n", elapsed);
         if (elapsed >= timeout) {
             return I2C_STATUS_TIMEOUT;
         }
@@ -68,7 +71,6 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     timeout_timer = timer_read();
     while (!(TWCR & (1 << TWINT))) {
         uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_start(address) wait %d msec\n", elapsed);
         if (elapsed >= timeout) {
             return I2C_STATUS_TIMEOUT;
         }
@@ -93,7 +95,6 @@ i2c_status_t i2c_write(uint8_t data, uint16_t timeout) {
     uint16_t timeout_timer = timer_read();
     while (!(TWCR & (1 << TWINT))) {
         uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_write wait %d msec\n", elapsed);
         if (elapsed >= timeout) {
             return I2C_STATUS_TIMEOUT;
         }
@@ -113,7 +114,6 @@ int16_t i2c_read_ack(uint16_t timeout) {
     uint16_t timeout_timer = timer_read();
     while (!(TWCR & (1 << TWINT))) {
         uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_read_ack wait %d msec\n", elapsed);
         if (elapsed >= timeout) {
             return I2C_STATUS_TIMEOUT;
         }
@@ -130,7 +130,6 @@ int16_t i2c_read_nack(uint16_t timeout) {
     uint16_t timeout_timer = timer_read();
     while (!(TWCR & (1 << TWINT))) {
         uint16_t elapsed = timer_elapsed(timeout_timer);
-        xprintf("i2c_read_nack wait %d msec\n", elapsed);
         if (elapsed >= timeout) {
             return I2C_STATUS_TIMEOUT;
         }

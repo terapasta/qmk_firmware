@@ -1,8 +1,7 @@
-
 # for Pro Micro
-#DEFAULT_FOLDER = cacao62p/avr
+DEFAULT_FOLDER = gabunshitu/cacao62p/avr
 # for BLE Micro Pro
-DEFAULT_FOLDER = cacao62p/arm
+# DEFAULT_FOLDER = cacao62p/arm
 
 # Build Options
 #   change yes to no to disable

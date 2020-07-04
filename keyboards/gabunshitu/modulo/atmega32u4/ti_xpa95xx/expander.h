@@ -2,8 +2,7 @@
 // Created by 樋田一幸 on 2020/06/27.
 //
 
-#ifndef QMK_FIRMWARE_EXPANDER_H
-#define QMK_FIRMWARE_EXPANDER_H
+#pragma once
 
 enum {
     CMD_INPUT = 0,
@@ -26,5 +25,3 @@ typedef struct {
 
 void expander_init(const expander *slaves, uint8_t count);
 uint16_t expander_readPins(const expander *slave);
-
-#endif  // QMK_FIRMWARE_EXPANDER_H

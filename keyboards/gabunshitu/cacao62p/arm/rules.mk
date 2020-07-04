@@ -62,5 +62,5 @@ HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
 # custom matrix setup
 CUSTOM_MATRIX = yes
 SRC += matrix.c
-#SRC += modulo/atmega32u4/i2c_master.c
-#SRC += modulo/atmega32u4/ti_xpa95xx/expander.c
+#SRC += ../../modulo/atmega32u4/i2c_master.c
+#SRC += ../../modulo/atmega32u4/ti_xpa95xx/expander.c
