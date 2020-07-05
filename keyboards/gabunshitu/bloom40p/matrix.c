@@ -52,12 +52,13 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 
     dprint("matrix_scan_custom");
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
-        dprintf("read[%d/%d]\n", i, MATRIX_ROWS);
         matrix_row_t last_row = current_matrix[i];
         matrix_row_t current_row = expander_readPins(&expanders[i]);
         current_matrix[i] = current_row;
         changed |= last_row != current_row;
-        dprintf("row[%d]: %02X\n", i, current_row);
+        if (current_row != 0) {
+            xprintf("row[%d]: %02X\n", i, current_row);
+        }
     }
 
     return changed;

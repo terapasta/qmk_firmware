@@ -53,6 +53,7 @@ uint16_t expander_readPins(const expander *slave) {
 
     i2c_status_t ret = i2c_readReg(addr, cmd, data, slave->num_port, TIMEOUT);
     if (ret != I2C_STATUS_SUCCESS) {
+        xprintf("expander_readPins FAILED: %d, addr: %02X, cmd: %02X\n", ret, addr, cmd);
         return 0x0000;
     }
 
