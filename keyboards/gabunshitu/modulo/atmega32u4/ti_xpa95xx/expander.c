@@ -63,5 +63,10 @@ uint16_t expander_readPins(const expander *slave) {
         result |= data[i];
     }
 
-    return (~result) & slave->mask;
+    result = ~result;
+    result &= slave->mask;
+//    if (result != 0) {
+//        xprintf("expander_readPins %04X, addr: %02X, cmd: %02X\n", result, addr, cmd);
+//    }
+    return result;
 }
