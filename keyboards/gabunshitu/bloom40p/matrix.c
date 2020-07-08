@@ -28,14 +28,14 @@
 //_____CUSTOM MATRIX IMPLEMENTATION____________________________________________________
 
 static expander expanders[MATRIX_ROWS] = {
-//    PCA9555(0x00),
-//    PCA9554(0x01),
-//    PCA9555(0x06),
-//    PCA9554(0x07)
-    PCA9555(0x02),
-    PCA9554(0x03),
-    PCA9555(0x04),
-    PCA9554(0x05)
+//    PCA9554(0x02),
+//    PCA9555(0x03),
+//    PCA9554(0x04),
+//    PCA9555(0x05)
+    PCA9554(0x00),
+    PCA9555(0x01),
+    PCA9554(0x06),
+    PCA9555(0x07)
 };
 
 void matrix_init_custom(void) {
@@ -53,11 +53,11 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     dprint("matrix_scan_custom");
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
         matrix_row_t last_row = current_matrix[i];
-        matrix_row_t current_row = expander_readPins(&expanders[i]);
+        matrix_row_t current_row = expander_readPins(expanders);
         current_matrix[i] = current_row;
         changed |= last_row != current_row;
-        if (current_row != 0) {
-            xprintf("row[%d]: %02X\n", i, current_row);
+        if (current_row != 0 && current_row != last_row) {
+            xprintf("row[%d]: %04X -> %04X\n", i, last_row, current_row);
         }
     }
 

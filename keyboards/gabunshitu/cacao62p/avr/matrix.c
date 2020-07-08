@@ -51,7 +51,9 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 //        xprintf("read[%d/%d]\n", i, MATRIX_ROWS);
         matrix_row_t last_row = current_matrix[i];
         matrix_row_t current_row = expander_readPins(&expanders[i]);
-        xprintf("row[%d]: %02X\n", i, current_row);
+        if (current_row != 0 && current_row != last_row) {
+            xprintf("row[%d]: %04X -> %04X\n", i, last_row, current_row);
+        }
         current_matrix[i] = current_row;
         changed |= (last_row != current_row);
     }
