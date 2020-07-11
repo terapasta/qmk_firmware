@@ -20,8 +20,8 @@
 #include <quantum.h>
 #include <matrix.h>
 
-#include "../../modulo/atmega32u4/ti_xpa95xx/expander.h"
-#include "../../modulo/atmega32u4/i2c_master.h"
+#include "../modulo/atmega32u4/ti_xpa95xx/expander.h"
+#include "../modulo/atmega32u4/i2c_master.h"
 
 #include <debug.h>
 
