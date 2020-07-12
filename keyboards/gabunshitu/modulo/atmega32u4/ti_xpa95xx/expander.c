@@ -26,9 +26,6 @@ void expander_init(const expander *slaves, uint8_t count) {
         _delay_ms(1000);
     }
 
-//    i2c_start(0x22 << 1, TIMEOUT);
-//    i2c_stop();
-
     // make all pins to input mode
     for (uint8_t i = 0; i < count; i++) {
         uint8_t num = slaves[i].num_port;
@@ -53,7 +50,7 @@ uint16_t expander_readPins(const expander *slave) {
 
     i2c_status_t ret = i2c_readReg(addr, cmd, data, slave->num_port, TIMEOUT);
     if (ret != I2C_STATUS_SUCCESS) {
-        xprintf("expander_readPins FAILED: %d, addr: %02X, cmd: %02X\n", ret, addr, cmd);
+//        xprintf("expander_readPins FAILED: %d, addr: %02X, cmd: %02X\n", ret, addr, cmd);
         return 0x0000;
     }
 
