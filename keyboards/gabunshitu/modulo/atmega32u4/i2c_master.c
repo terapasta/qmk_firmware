@@ -79,7 +79,7 @@ i2c_status_t i2c_start(uint8_t address, uint16_t timeout) {
     // check if the device has acknowledged the READ / WRITE mode
     uint8_t twst = TW_STATUS & 0xF8;
     if ((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
-        dprint("i2c_start cannot address");
+        dprint("i2c_start cannot address\n");
         return I2C_STATUS_ERROR;
     }
 
