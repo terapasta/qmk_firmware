@@ -27,7 +27,7 @@
 #define DESCRIPTION     ABplus cacao62%
 
 /* key matrix size */
-#define MATRIX_ROWS 6
+#define MATRIX_ROWS 1
 #define MATRIX_COLS 16
 
 /*
@@ -168,3 +168,5 @@
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 400
+
+#define RGBLED_NUM 16

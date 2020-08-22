@@ -28,6 +28,7 @@
 //_____CUSTOM MATRIX IMPLEMENTATION____________________________________________________
 
 static expander expanders[MATRIX_ROWS] = {
+    PCA9536(),
     PCA9555(0x00),
     PCA9555(0x01),
     PCA9554(0x02),

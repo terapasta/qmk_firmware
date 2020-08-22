@@ -165,3 +165,6 @@
 
 #define DEBUG_ACTION 1
 #define USE_I2C 1
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 400
