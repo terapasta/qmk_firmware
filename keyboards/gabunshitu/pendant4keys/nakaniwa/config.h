@@ -167,4 +167,4 @@
 #define USE_I2C 1
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 400
+#define TAPPING_TERM 200
