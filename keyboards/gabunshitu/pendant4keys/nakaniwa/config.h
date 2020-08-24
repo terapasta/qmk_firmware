@@ -61,7 +61,7 @@
 /* If defined, GRAVE_ESC will always act as ESC when CTRL is held.
  * This is userful for the Windows task manager shortcut (ctrl+shift+esc).
  */
-#define GRAVE_ESC_CTRL_OVERRIDE
+//#define GRAVE_ESC_CTRL_OVERRIDE
 
 /*
  * Force NKRO
