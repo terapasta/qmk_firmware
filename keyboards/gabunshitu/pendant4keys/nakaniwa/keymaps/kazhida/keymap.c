@@ -26,13 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T),     LGUI(KC_Y), LGUI(KC_U), LGUI(KC_I), LGUI(KC_O), LGUI(KC_P), _______,_______,LGUI(KC_BSPC),
         _______,LGUI(KC_A), LGUI(KC_S), LGUI(KC_D), LGUI(KC_F), LGUI(KC_G),     LGUI(KC_H), LGUI(KC_J), LGUI(KC_K), LGUI(KC_L), _______,    _______,LGUI(KC_ENT),
         _______,LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), LGUI(KC_B),     LGUI(KC_N), LGUI(KC_M), LGUI(KC_M), LGUI(KC_COMM),LGUI(KC_SLSH),    _______,KC_PGUP,_______,
-        KC_ESC, _______,_______,_______,_______,                                KC_SPC,     _______,                                _______,    KC_HOME,KC_PGDN, KC_END
-//        KC_1,   KC_2,   KC_3,   KC_4,
-//        KC_GRV, KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,          KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12, _______,_______,
-//        _______,KC_F5,  KC_F6,  KC_F7,  KC_F8,  _______,        _______,_______,_______,_______,_______,_______,_______,_______,
-//        _______,KC_F9,  KC_F10, KC_F11, KC_F12, _______,        _______,_______,_______,_______,_______,_______,_______,
-//        _______,_______,_______,_______,_______,_______,        _______,_______,_______,_______,_______,_______,KC_PGUP,_______,
-//        _______,_______,_______,_______,_______,                _______,_______,                _______,KC_HOME,KC_PGDN,KC_END
+        KC_BSPC, _______,_______,_______,_______,                                KC_SPC,     _______,                                _______,    KC_HOME,KC_PGDN, KC_END
     ),
     [_RAISE] = LAYOUT(
         KC_1,   KC_2,   KC_3,   KC_4,
@@ -41,11 +35,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,RSFT(KC_A), RSFT(KC_S), RSFT(KC_D), RSFT(KC_F), RSFT(KC_G),     RSFT(KC_H), RSFT(KC_J), RSFT(KC_K), RSFT(KC_L), KC_COLN,    KC_DQUO,RSFT(KC_ENT),
         _______,RSFT(KC_Z), RSFT(KC_X), RSFT(KC_C), RSFT(KC_V), RSFT(KC_B),     RSFT(KC_N), RSFT(KC_M), KC_LABK,    KC_RABK,    KC_QUES,    _______,KC_PGUP,_______,
         KC_DEL, _______,_______,_______,_______,                                _______,    _______,                                _______,KC_HOME,KC_PGDN,KC_END
-//        KC_1,   KC_2,   KC_3,   KC_4,
-//        KC_TILD,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,          KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_UNDS,KC_PLUS,KC_TILD,KC_PIPE,
-//        _______,KC_F5,  KC_F6,  KC_F7,  KC_F8,  _______,        _______,_______,_______,_______,_______,_______,_______,_______,
-//        _______,KC_F9,  KC_F10, KC_F11, KC_F12, _______,        _______,_______,_______,_______,_______,_______,_______,
-//        _______,_______,_______,_______,_______,_______,        _______,_______,_______,_______,_______,_______,KC_PGUP,_______,
-//        _______,_______,_______,_______,_______,                _______,_______,                _______,KC_HOME,KC_PGDN,KC_END
     )
 };
