@@ -32,8 +32,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             _______,_______,_______,_______,_______,                                _______,    _______,    _______,    _______,            _______,        KC_HOME,KC_PGDN, KC_END
     ),
     [_RAISE] = LAYOUT(
-            KC_TILD,KC_EXLM,    JP_AT,     KC_HASH,    KC_DLR,     KC_PERC,    _______,    JP_CIRC,    JP_AMPR,    JP_ASTR,    JP_LPRN,   JP_RPRN,    JP_UNDS,JP_PLUS,JP_PIPE,JP_TILD,
-            _______,sft(KC_Q),  sft(KC_W),  sft(KC_E),  sft(KC_R),  sft(KC_T),              sft(KC_Y),  sft(KC_U),  sft(KC_I),  sft(KC_O),  sft(KC_P),  KC_LCBR,KC_RCBR,RSFT(KC_BSPC),
+            KC_TILD,KC_EXLM,    JP_DQT,     KC_HASH,    KC_DLR,     KC_PERC,    _______,    JP_CIRC,    JP_AMPR,    JP_ASTR,    JP_LPRN,   JP_RPRN,    JP_UNDS,JP_PLUS,JP_PIPE,JP_TILD,
+            _______,sft(KC_Q),  sft(KC_W),  sft(KC_E),  sft(KC_R),  sft(KC_T),              sft(KC_Y),  sft(KC_U),  sft(KC_I),  sft(KC_O),  sft(KC_P),  JP_LCBR,JP_RCBR,RSFT(KC_BSPC),
             _______,sft(KC_A),  sft(KC_S),  sft(KC_D),  sft(KC_F),  sft(KC_G),              sft(KC_H),  sft(KC_J),  sft(KC_K),  sft(KC_L),  JP_COLN,    JP_DQT,sft(KC_ENT),
             _______,sft(KC_Z),  sft(KC_X),  sft(KC_C),  sft(KC_V),  sft(KC_B),      _______,sft(KC_N),  sft(KC_M),  KC_LABK,    KC_RABK,    KC_QUES,    _______,sft(KC_UP),_______,
             _______,_______,_______,_______,_______,                                _______,    _______,    _______,    _______,        _______,sft(KC_LEFT),sft(KC_DOWN),sft(KC_RIGHT)
