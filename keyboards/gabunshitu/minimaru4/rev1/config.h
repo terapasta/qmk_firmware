@@ -46,7 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL*/
-#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
@@ -59,22 +59,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
  #define RGB_DI_PIN D4
  #ifdef RGB_DI_PIN
-   #define RGBLED_NUM 48
-   #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+   #define RGBLED_NUM 16
 //   #define RGBLIGHT_HUE_STEP 8
 //   #define RGBLIGHT_SAT_STEP 8
-//   #define RGBLIGHT_VAL_STEP 8
-//   #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+   #define RGBLIGHT_VAL_STEP 8
+   #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
 //   #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
  /*== all animations enable ==*/
 //   #define RGBLIGHT_ANIMATIONS
  /*== or choose animations ==*/
-//   #define RGBLIGHT_EFFECT_BREATHING
+   #define RGBLIGHT_EFFECT_BREATHING 1
 //   #define RGBLIGHT_EFFECT_RAINBOW_MOOD
 //   #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 //   #define RGBLIGHT_EFFECT_SNAKE
 //   #define RGBLIGHT_EFFECT_KNIGHT
-//   #define RGBLIGHT_EFFECT_CHRISTMAS
+//   #define RGBLIGHT_EFFECT_CHRISTM
+//   AS
 //   #define RGBLIGHT_EFFECT_STATIC_GRADIENT
 //   #define RGBLIGHT_EFFECT_RGB_TEST
 //   #define RGBLIGHT_EFFECT_ALTERNATING
@@ -252,7 +252,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BOOTMAGIC_LITE_COLUMN 0
 
 
-//#define DEBUG_ACTION 1
+#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM
