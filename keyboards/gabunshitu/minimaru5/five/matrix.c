@@ -20,19 +20,19 @@
 #include <quantum.h>
 #include <matrix.h>
 
-#include "../modulo/atmega32u4/ti_xpa95xx/expander.h"
-#include "../modulo/atmega32u4/i2c_master.h"
+#include "../../modulo/atmega32u4/ti_xpa95xx/expander.h"
+#include "../../modulo/atmega32u4/i2c_master.h"
 
 #include <debug.h>
 
 //_____CUSTOM MATRIX IMPLEMENTATION____________________________________________________
 
 static expander expanders[MATRIX_ROWS] = {
-    PCA9555(0x00),
-    PCA9555(0x01),
-    PCA9555(0x02),
-    PCA9555(0x03),
-    PCA9555(0x04)
+    PCA9555(0x07),
+    PCA9555(0x06),
+    PCA9555(0x05),
+    PCA9555(0x04),
+    PCA9555(0x03)
 };
 
 void matrix_init_custom(void) {

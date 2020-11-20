@@ -249,3 +249,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
+
+#define DEBUG_ACTION 1
+#define USE_I2C 1
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 400
