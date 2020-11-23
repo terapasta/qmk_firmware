@@ -31,6 +31,8 @@ AUDIO_ENABLE = no           # Audio output
 FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
 
+BACKLIGHT_DRIVER = pwm
+
 CUSTOM_MATRIX = lite
 SRC += matrix.c
 SRC += gabunshitu/modulo/atmega32u4/i2c_master.c
