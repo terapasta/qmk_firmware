@@ -163,7 +163,7 @@
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
-#define DEBUG_ACTION 1
+//#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM

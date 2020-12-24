@@ -53,18 +53,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
-// #define BACKLIGHT_PIN B7
+// #define BACKLIGHT_PIN D5
 // #define BACKLIGHT_BREATHING
 // #define BACKLIGHT_LEVELS 3
 
 #define RGB_DI_PIN D4
 #ifdef RGB_DI_PIN
    #define RGBLED_NUM 16
-//   #define RGBLIGHT_HUE_STEP 8
-//   #define RGBLIGHT_SAT_STEP 8
-//   #define RGBLIGHT_VAL_STEP 8
+   #define RGBLIGHT_HUE_STEP 8
+   #define RGBLIGHT_SAT_STEP 8
+   #define RGBLIGHT_VAL_STEP 8
 //   #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
-//   #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+   #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 // /*== all animations enable ==*/
 //   #define RGBLIGHT_ANIMATIONS
 // /*== or choose animations ==*/
@@ -250,7 +250,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
 
-//#define DEBUG_ACTION 1
+#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM

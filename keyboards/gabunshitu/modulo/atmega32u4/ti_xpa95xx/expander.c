@@ -23,7 +23,7 @@ void expander_init(const expander *slaves, uint8_t count) {
     if (!initialized) {
         initialized++;
         i2c_init();
-        _delay_ms(1000);
+        _delay_ms(500);
     }
 
     // make all pins to input mode
