@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,     KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,               KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   JP_AT,JP_RBRC,JP_LBRC,
             KC_LCTL,    KC_A,   KC_S,   KC_D,   KC_F,   KC_G,               KC_H,   KC_J,   KC_K,   KC_L,   JP_SCLN,JP_COLN,KC_ENT,
             KC_LSFT,    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,       KC_F3,  KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,JP_BSLS,KC_UP,  KC_DEL,
-            KC_LCTRL,   KC_LGUI,KC_LALT,KC_SPC,KL_EISU,                    KL_KANA,KC_NO,   KC_SPC, KC_NO,         KC_RSFT,KC_LEFT,KC_DOWN,KC_RIGHT
+            KC_LCTRL,   KC_LGUI,KC_LALT,KC_SPC, KL_EISU,                    KL_KANA,KC_NO,  KC_SPC, KC_NO,         KC_RSFT,KC_LEFT,KC_DOWN,KC_RIGHT
     ),
     [_LOWER] = LAYOUT(
             KC_GRV, KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      _______,    KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11, KC_F12, _______,_______,
@@ -47,8 +47,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TILD,KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    _______,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS, KC_PLUS,KC_PIPE,KC_TILD,
             _______,sft(KC_Q), sft(KC_W), sft(KC_E), sft(KC_R), sft(KC_T),             sft(KC_Y), sft(KC_U), sft(KC_I), sft(KC_O), sft(KC_P), KC_LCBR,KC_RCBR,sft(KC_BSPC),
             _______,sft(KC_A), sft(KC_S), sft(KC_D), sft(KC_F), sft(KC_G),             sft(KC_H), sft(KC_J), sft(KC_K), sft(KC_L), KC_PLUS,    KC_ASTR,sft(KC_ENT),
-            _______,sft(KC_Z), sft(KC_X), sft(KC_C), sft(KC_V), sft(KC_B),     _______,sft(KC_N), sft(KC_M), KC_LABK,    KC_RABK,    KC_QUES,    _______,KC_PGUP,_______,
-            _______,_______,_______,_______,_______,                                _______,    _______,    _______,    _______,        KC_DEL,KC_HOME,KC_PGDN,KC_END
+            _______,sft(KC_Z), sft(KC_X), sft(KC_C), sft(KC_V), sft(KC_B),     _______,sft(KC_N), sft(KC_M), KC_LABK,    KC_RABK,    KC_QUES,    _______,KC_PGUP,KC_RSFT,
+            _______,_______,_______,_______,_______,                                _______,    _______,    _______,    _______,        _______,KC_HOME,KC_PGDN,KC_END
     )
 };
 
