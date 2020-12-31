@@ -15,6 +15,7 @@
  */
 
 #include "three.h"
+#include "rgb_matrix.h"
 
 // Optional override functions below.
 // You can leave any or all of these undefined.
