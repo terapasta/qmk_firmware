@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0xFEED
 #define PRODUCT_ID 0x0000
 #define DEVICE_VER 0x0001
-#define MANUFACTURER ABplus Inc.
-#define PRODUCT minimaru-1
+#define MANUFACTURER ABplus Inc. kazhida
+#defiyhne PRODUCT minimaru-4x1
 #define DESCRIPTION A custom keyboard
 
 /* key matrix size */
@@ -57,13 +57,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BACKLIGHT_BREATHING
 // #define BACKLIGHT_LEVELS 3
 
-#define RGB_DI_PIN D4
+#define RGB_DI_PIN B5
 #ifdef RGB_DI_PIN
    #define RGBLED_NUM 16
    #define RGBLIGHT_HUE_STEP 8
    #define RGBLIGHT_SAT_STEP 8
    #define RGBLIGHT_VAL_STEP 8
-//   #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+   #define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
    #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 // /*== all animations enable ==*/
 //   #define RGBLIGHT_ANIMATIONS

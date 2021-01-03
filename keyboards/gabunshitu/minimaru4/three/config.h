@@ -64,7 +64,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    #define RGBLIGHT_HUE_STEP 8
    #define RGBLIGHT_SAT_STEP 8
    #define RGBLIGHT_VAL_STEP 8
-   #define RGBLIGHT_LIMIT_VAL 180 /* The maximum brightness level */
+   #define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
    #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 // /*== all animations enable ==*/
 //   #define RGBLIGHT_ANIMATIONS
@@ -251,8 +251,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
 
- #define DEBUG_ACTION 1
+#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 400
+#define TAPPING_TERM 250
