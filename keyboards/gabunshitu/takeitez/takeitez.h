@@ -18,6 +18,8 @@
 
 #include "quantum.h"
 
+#define xxxx KC_NO
+
 /* This is a shortcut to help you visually see your layout.
  *
  * The first section contains all of the arguments representing the physical
@@ -26,11 +28,14 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
-#define LAYOUT( \
-    k00, k01, k02, \
-      k10,  k12    \
-) \
-{ \
-    { k00, k01,   k02 }, \
-    { k10, KC_NO, k12 }  \
+#define LAYOUT(                                                                     \
+    k101, k102, k103, k104, k105, k106, k301, k302, k303, k304, k305, k306, k307,   \
+    k109, k110, k111, k112, k113, k114, k309, k310, k311, k312, k313, k314,         \
+    k201, k202, k203, k204, k205, k206, k401, k402, k403, k404, k405, k406,         \
+    k209, k210, k211, k212, k213,       k409, k410, k411, k412, k413, k414          \
+) {                                                                                 \
+    { k101, k102, k103, xxxx, k109, k110, k111, xxxx, k201, k202, k203, xxxx, k209, k210, k211, xxxx }, \
+    { k104, k105, k106, xxxx, k112, k113, k114, xxxx, k204, k205, k206, xxxx, k212, k213, xxxx, xxxx }, \
+    { k301, k302, k303, xxxx, k309, k310, k311, xxxx, k401, k402, k403, xxxx, k409, k410, k411, xxxx }, \
+    { k304, k305, k306, k307, k312, k313, k314, xxxx, k404, k405, k406, xxxx, k412, k413, k414, xxxx }  \
 }
