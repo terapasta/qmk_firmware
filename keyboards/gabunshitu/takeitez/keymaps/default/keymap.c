@@ -22,11 +22,10 @@ enum layer_number {
     _FUNCS
 };
 
-
-#define KA_EISU LALT_T(KC_LANG2)
-#define KL_SPC  LT(_LOWER, KC_SPC)
-#define KS_SPC  RSFT_T(KC_SPC)
-#define KL_KANA LT(_RAISE, KC_LANG1)
+#define KL_EISU LT(_LOWER, KC_LANG2)
+#define KS_KANA RSFT_T(KC_LANG1)
+#define KA_SPC  RALT_T(KC_SPC)
+#define KL_SPC  LT(_RAISE, KC_SPC)
 #define KL_TAB  LT(_FUNCS, KC_TAB)
 
 #define cmd(kc) LGUI(kc)
@@ -36,21 +35,21 @@ enum layer_number {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT(
-    KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   KC_LBRC,KC_RBRC,
-    KL_TAB, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_GRV, KC_BSPC,
+    KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   KC_GRV, KC_BSPC,
+    KL_TAB, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,KC_ENT,
     KC_LSFT,KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_UP,  KC_SLSH,
-    KC_LCTL,KC_LGUI,KC_DEL, KA_EISU,KL_SPC, KS_SPC, KL_KANA,KC_RALT,KC_LEFT,KC_DOWN,KC_RIGHT
+    KC_LCTL,KC_LGUI,KC_DEL, KA_SPC, KL_EISU,KS_KANA,KL_SPC,KC_RALT,KC_LEFT,KC_DOWN,KC_RIGHT
 ),
 [_LOWER] = LAYOUT(
-    _______,cmd(KC_Q),  cmd(KC_W),  cmd(KC_E),  cmd(KC_R),  cmd(KC_T),  cmd(KC_Y),  cmd(KC_U),  cmd(KC_I),  cmd(KC_O),  cmd(KC_P),  cmd(KC_LBRC),   cmd(KC_RBRC),
-    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),  cmd(KC_H),  cmd(KC_J),  cmd(KC_K),  cmd(KC_L),  KC_COLN,    KC_ENT,
-    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),  cmd(KC_N),  cmd(KC_M),  KC_MINS,    KC_EQL,     KC_PGUP,    KC_BSLS,
+    _______,cmd(KC_Q),  cmd(KC_W),  cmd(KC_E),  cmd(KC_R),  cmd(KC_T),  cmd(KC_Y),  cmd(KC_U),  cmd(KC_I),  cmd(KC_O),  cmd(KC_P),  KC_MINS,    KC_EQL,
+    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),  cmd(KC_H),  cmd(KC_J),  cmd(KC_K),  cmd(KC_L),  KC_QUOT,    cmd(KC_ENT),
+    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),  cmd(KC_N),  cmd(KC_M),  KC_LPRN,    KC_RPRN,    KC_PGUP,    KC_BSLS,
     _______,_______,    _______,    _______,    _______,                _______,    _______,    _______,    KC_HOME,    KC_PGDN,    KC_END
 ),
 [_RAISE] = LAYOUT(
     _______,KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS, KC_EQL,
-    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_SCLN,KC_ENT,
-    _______,_______,_______,_______,_______,_______,_______,_______,KC_COLN,KC_SCLN,KC_PGUP,_______,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_QUOT,LALT(KC_ENT),
+    _______,_______,_______,_______,_______,_______,_______,_______,KC_LBRC,KC_RBRC,KC_PGUP,_______,
     _______,_______,_______,_______,_______,        _______,_______,_______,KC_HOME,KC_PGDN,KC_END
 ),
 [_FUNCS] = LAYOUT(
