@@ -34,7 +34,7 @@
 ) { \
     { k101, k102, k103, k104, k105, k106, KC_NO, KC_NO, k201, k202, k203, k204, k205, k206,  KC_NO, KC_NO }, \
     { k301, k302, k303, k304, k305, k306, KC_NO, KC_NO, k401, k402, k403, k404, k405, KC_NO, KC_NO, KC_NO }, \
-    { k307, k308, k309, k310, k311, k312, KC_NO, KC_NO, k406, k407, k408, k409, k410, k411,  KC_NO, KC_NO }, \
-    { k107, k108, k109, k110, k111, k112, k113,  KC_NO, k207, k208, k209, k210, k211, k212,  KC_NO, KC_NO }  \
+    { k107, k108, k109, k110, k111, k112, k113,  KC_NO, k207, k208, k209, k210, k211, k212,  KC_NO, KC_NO }, \
+    { k307, k308, k309, k310, k311, k312, KC_NO, KC_NO, k406, k407, k408, k409, k410, k411,  KC_NO, KC_NO }  \
 }
 
