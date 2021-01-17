@@ -1,5 +1,5 @@
 /*
-Copyright 2021 kazhida
+Copyright 2021 ABplus Inc. kazhida
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,12 +23,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID    0xFEED
 #define PRODUCT_ID   0x0000
 #define DEVICE_VER   0x0001
-#define MANUFACTURER kazhida
-#define PRODUCT      ortho
+#define MANUFACTURER ABplus Inc. kazhida
+#define PRODUCT      Column13 ortholinear
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 16
 
 /*
  * Keyboard Matrix Assignments
@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
-//#define LED_NUM_LOCK_PIN B0
+//#define LED_NUM_LOCK_PIN D3
 //#define LED_CAPS_LOCK_PIN B1
 //#define LED_SCROLL_LOCK_PIN B2
 //#define LED_COMPOSE_PIN B3
@@ -62,18 +62,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-//#define RGB_DI_PIN E2
-//#ifdef RGB_DI_PIN
-//#    define RGBLED_NUM 16
-//#    define RGBLIGHT_HUE_STEP 8
-//#    define RGBLIGHT_SAT_STEP 8
-//#    define RGBLIGHT_VAL_STEP 8
-//#    define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+#define RGB_DI_PIN D3
+#ifdef RGB_DI_PIN
+#    define RGBLED_NUM 48
+#    define RGBLIGHT_HUE_STEP 8
+#    define RGBLIGHT_SAT_STEP 8
+#    define RGBLIGHT_VAL_STEP 8
+#    define RGBLIGHT_LIMIT_VAL 200 /* The maximum brightness level */
 //#    define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
 //#    define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
-//#    define RGBLIGHT_EFFECT_BREATHING
+#    define RGBLIGHT_EFFECT_BREATHING
 //#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
 //#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 //#    define RGBLIGHT_EFFECT_SNAKE
@@ -88,7 +88,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*==== use exp() and sin() ====*/
 //#    define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
 //#    define RGBLIGHT_EFFECT_BREATHE_MAX    255   // 0 to 255
-//#endif
+#endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -150,3 +150,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
+
+#define DEBUG_ACTION 1
+#define USE_I2C 1
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 250

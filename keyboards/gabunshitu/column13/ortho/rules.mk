@@ -20,3 +20,9 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
+
+# custom matrix setup
+CUSTOM_MATRIX = lite
+SRC += matrix.c
+SRC += gabunshitu/modulo/atmega32u4/i2c_master.c
+SRC += gabunshitu/modulo/atmega32u4/ti_xpa95xx/expander.c
