@@ -44,13 +44,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_LOWER] = LAYOUT(
     _______,cmd(KC_Q),  cmd(KC_W),  cmd(KC_E),  cmd(KC_R),  cmd(KC_T),  cmd(KC_Y),  cmd(KC_U),  cmd(KC_I),  cmd(KC_O),  cmd(KC_P),  JP_CIRC,   _______,
-    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),  cmd(KC_H),  cmd(KC_J),  cmd(KC_K),  cmd(KC_L),  JP_COLN,    _______,
-    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),  cmd(KC_N),  cmd(KC_M),  JP_LCBR,    JP_RCBR,    KC_PGUP,    _______,
+    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),  cmd(KC_H),  cmd(KC_J),  cmd(KC_K),  cmd(KC_L),  _______,    _______,
+    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),  cmd(KC_N),  cmd(KC_M),  JP_SCLN,    JP_COLN,    KC_PGUP,    _______,
     _______,_______,    _______,    _______,    _______,                _______,    _______,    JP_YEN,     KC_HOME,    KC_PGDN,    KC_END
 ),
 [_RAISE] = LAYOUT(
     _______,KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   JP_CIRC, _______,
-    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,JP_SCLN,_______,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
     _______,_______,_______,_______,_______,_______,_______,_______,JP_LBRC,JP_RBRC,KC_PGUP,_______,
     _______,_______,_______,_______,_______,        KC_ENT, _______,JP_BSLS,KC_HOME,KC_PGDN,KC_END
 ),
