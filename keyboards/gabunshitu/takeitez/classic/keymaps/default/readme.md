@@ -1,1 +1,1 @@
-# The default keymap for classic
+# The default keymap for takeitez
