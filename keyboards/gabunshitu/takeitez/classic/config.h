@@ -1,5 +1,5 @@
 /*
-Copyright 2020 kazhida
+Copyright 2021 ABplus Inc. kazhida
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_COL_PINS { F1, F0, B0 }
 #define UNUSED_PINS
 
-/* COL2ROW, ROW2COL*/
+/* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
 /*

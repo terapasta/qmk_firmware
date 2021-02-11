@@ -1,4 +1,4 @@
-/* Copyright 2020 kazhida
+/* Copyright 2021 A5Bplus Inc. kazhida
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,8 +18,6 @@
 
 #include "quantum.h"
 
-#define xxxx KC_NO
-
 /* This is a shortcut to help you visually see your layout.
  *
  * The first section contains all of the arguments representing the physical
@@ -28,6 +26,7 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
+#define xxxx KC_NO
 #define LAYOUT(                                                                     \
     k101, k102, k103, k104, k105, k106, k301, k302, k303, k304, k305, k306, k307,   \
     k109, k110, k111, k112, k113, k114, k309, k310, k311, k312, k313, k314,         \
