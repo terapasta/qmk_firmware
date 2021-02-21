@@ -43,10 +43,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------------------------------------------------------+-------'
  */
 [_QWERTY] = LAYOUT(
-    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, KC_BSPC,
-    KL_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,    KC_J,    KC_K,    KC_L,    KC_GRV,  KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
-    KC_LCTL, KC_LGUI, KC_DEL,  KA_SPC,  KL_EISU,         KS_KANA, KL_SPC,  KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
+    KC_1,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, KC_G,
+    KC_2,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_F,
+    KC_3,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_E,
+    KC_4,  KC_5,    KC_6,    KC_7,    KC_8,            KC_9,    KC_0,    KC_A,    KC_B,    KC_C,    KC_D,
+
+    KC_A,   KC_B,   KC_C,   KC_D,   KC_E,   KC_F,   KC_G,   KC_H,   KC_I,   KC_J,   KC_K,   KC_L, KC_M,
+    KC_0,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0
 ),
 
 /* Lower
@@ -61,15 +64,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------------------------------------------------------+-------'
  */
 [_LOWER] = LAYOUT(
-    KC_GRV,  cmd(KC_Q), cmd(KC_W), cmd(KC_E), cmd(KC_R), cmd(KC_T), cmd(KC_Y), cmd(KC_U), cmd(KC_I), cmd(KC_O),  cmd(KC_P),KC_EQL,_______,
-    _______, cmd(KC_A), cmd(KC_S), cmd(KC_D), cmd(KC_F), cmd(KC_G), cmd(KC_H), cmd(KC_J), cmd(KC_K), cmd(KC_L),  KC_COLN, _______,
-    _______, cmd(KC_Z), cmd(KC_X), cmd(KC_C), cmd(KC_V), cmd(KC_B), cmd(KC_N), cmd(KC_M), KC_LCBR,   KC_RCBR,    KC_PGUP, KC_BSLS,
-    _______, _______,   _______,   _______,   _______,              _______,   _______,   KC_BSLS,   KC_HOME,    KC_PGDN, KC_END
+    KC_GRV,  KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_6,      KC_7,      KC_8,         KC_9,        KC_0,    KC_MINS, KC_EQL,
+    _______, cmd(KC_A), cmd(KC_S), cmd(KC_D), cmd(KC_F), cmd(KC_G), cmd(KC_H), cmd(KC_J), cmd(KC_K),    cmd(KC_L),   KC_QUOT, cmd(KC_ENT),
+    _______, cmd(KC_Z), cmd(KC_X), cmd(KC_C), cmd(KC_V), cmd(KC_B), cmd(KC_N), cmd(KC_M), cmd(KC_COMM), cmd(KC_DOT), KC_PGUP,
+    _______, _______,   _______,   _______,   _______,              _______,   _______,   _______,      KC_HOME,     KC_PGDN, KC_END,
+
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
 ),
 
 /* Raise
  * ,-----------------------------------------.-----------------------------------------------.
- * |  Esc  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  | F10  | F11 | F12 |
+ * |  Esc  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |---------+------+------+------+------+------|------+------+------+------+------+---------|
  * |   Tab   |  c-A |  c-S |  c-D |  c-F |  c-G |  c-H |  c-J |  c-K |  c-L |  '"  | Enter   |
  * |---------+------+------+------+------+------|------+------+------+------+------+---------|
@@ -79,16 +85,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------------------------------------------------------+------'
  */
 [_RAISE] = LAYOUT(
-    _______,KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_EQL,  _______,
-    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_SCLN,_______,
-    _______,_______,_______,_______,_______,_______,_______,_______,KC_LBRC,KC_RBRC,KC_PGUP,KC_BSLS,
-    _______,_______,_______,_______,_______,        _______,_______,KC_BSLS,KC_HOME,KC_PGDN,KC_END
+    _______,KC_1,   KC_2,   KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_QUOT,LALT(KC_ENT),
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_PGUP,
+    _______,_______,_______,_______,_______,        _______,_______,_______,KC_HOME,KC_PGDN,KC_END,
+
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
 ),
 [_FUNCS] =  LAYOUT(
     _______,KC_1,   KC_2,   KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
     _______,RESET,_______,_______,_______,_______,_______,_______,_______,_______,RGB_MOD,RGB_TOG,
-    _______,_______,_______,_______,_______,_______,_______,_______,_______,RGB_VAI,RGB_SAI,RGB_VAD,
-    _______,_______,_______,_______,_______,        _______,_______,_______,RGB_HUI,RGB_SAD,RGB_HUD
+    _______,_______,_______,_______,_______,_______,_______,_______,RGB_VAI,RGB_SAI,RGB_VAD,_______,
+    _______,_______,_______,_______,_______,        _______,_______,RGB_HUI,RGB_SAD,RGB_HUD,
+
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
 )
 };
 
