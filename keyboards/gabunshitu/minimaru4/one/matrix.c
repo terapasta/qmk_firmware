@@ -29,6 +29,7 @@
 
 static expander expanders[MATRIX_ROWS] = {
     PCA9555(0x00)
+//    MCP23017(0x00)
 };
 
 void matrix_init_custom(void) {

@@ -36,5 +36,6 @@ RGB_MATRIX_DRIVER = WS2812
 
 CUSTOM_MATRIX = lite
 SRC += matrix.c
-SRC += gabunshitu/modulo/atmega32u4/i2c_master.c
 SRC += gabunshitu/modulo/atmega32u4/ti_xpa95xx/expander.c
+SRC += gabunshitu/modulo/atmega32u4/i2c_master.c
+#QUANTUM_LIB_SRC += i2c_master.c

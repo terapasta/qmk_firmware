@@ -4,10 +4,10 @@
 
 #include <avr/interrupt.h>
 #include <wait.h>
+#include <i2c_master.h>
 #include <debug.h>
 
 #include "expander.h"
-#include "../i2c_master.h"
 
 #define TIMEOUT 10
 
@@ -29,30 +29,50 @@ void expander_init(const expander *slaves, uint8_t count) {
     // make all pins to input mode
     for (uint8_t i = 0; i < count; i++) {
         uint8_t num = slaves[i].num_port;
-        uint8_t addr = slaves[i].address << 1;
+        uint8_t addr = slaves[i].dev_address << 1;
+        uint8_t conf = slaves[i].cfg_address;
+        uint8_t pull = slaves[i].pup_address;
+        uint8_t data = ALL_INPUT;
         for (uint8_t j = 0; j < num; j++) {
-            uint8_t cmd = CMD_CONFIG * num + j;
-            uint8_t conf = ALL_INPUT;
-            i2c_status_t ret = i2c_writeReg(addr, cmd, &conf, sizeof(conf), TIMEOUT);
+            uint8_t reg = conf + j;
+            i2c_status_t ret = i2c_writeReg(addr, reg, &data, sizeof(data), TIMEOUT);
             if (ret != I2C_STATUS_SUCCESS) {
-                xprintf("config pins FAILED: %d, addr: %02X, cmd: %02X conf: %d\n", ret, addr, cmd, conf);
+                xprintf("config pins all-input FAILED: %02X, addr: %02X, reg: %02X data: %d\n", ret, addr, reg, data);
             } else {
-                xprintf("config pins SUCCEEDED: %d, addr: %02X, cmd: %02X conf: %d\n", ret, addr, cmd, conf);
+                xprintf("config pins all-input SUCCEEDED: %02X, addr: %02X, reg: %02X data: %d\n", ret, addr, reg, data);
+            }
+        }
+        if (conf != pull) {
+            for (uint8_t j = 0; j < num; j++) {
+                uint8_t reg = pull + j;
+                i2c_status_t ret = i2c_writeReg(addr, reg, &data, sizeof(data), TIMEOUT);
+                if (ret != I2C_STATUS_SUCCESS) {
+                    xprintf("config pins pull-up FAILED: %02X, addr: %02X, reg: %02X data: %d\n", ret, addr, reg, data);
+                } else {
+                    xprintf("config pins pull-up SUCCEEDED: %02X, addr: %02X, reg: %02X data: %d\n", ret, addr, reg, data);
+                }
             }
         }
     }
 }
 
 uint16_t expander_readPins(const expander *slave) {
-    uint8_t addr = slave->address << 1;
+    uint8_t addr = slave->dev_address << 1;
     uint8_t data[2] = { 0xff, 0xff };     // num_port <= 2
-    uint8_t cmd = CMD_INPUT * slave->num_port;
+    uint8_t reg = slave->reg_address;
 
-    i2c_status_t ret = i2c_readReg(addr, cmd, data, slave->num_port, TIMEOUT);
-    if (ret != I2C_STATUS_SUCCESS) {
-//        xprintf("expander_readPins FAILED: %d, addr: %02X, cmd: %02X\n", ret, addr, cmd);
-        return 0x0000;
+    for (uint8_t i = 0; i < slave->num_port; i++) {
+        i2c_status_t ret = i2c_readReg(addr, reg + i, data + i, 1, TIMEOUT);
+        if (ret != I2C_STATUS_SUCCESS) {
+            return 0x0000;
+        }
     }
+
+//    i2c_status_t ret = i2c_readReg(addr, reg, data, slave->num_port, TIMEOUT);
+//    if (ret != I2C_STATUS_SUCCESS) {
+//        xprintf("expander_readPins FAILED: %d, addr: %02X, reg: %02X\n", ret, addr, reg);
+//        return 0x0000;
+//    }
 
     uint16_t result = 0;
     for (int8_t i = slave->num_port - 1; i >= 0; i--) {
@@ -63,7 +83,7 @@ uint16_t expander_readPins(const expander *slave) {
     result = ~result;
     result &= slave->mask;
 //    if (result != 0) {
-//        xprintf("expander_readPins %04X, addr: %02X, cmd: %02X\n", result, addr, cmd);
+//        xprintf("expander_readPins %04X, addr: %02X, reg: %02X\n", result, addr, reg);
 //    }
     return result;
 }
