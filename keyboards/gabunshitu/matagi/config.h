@@ -19,15 +19,15 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x4084
+#define VENDOR_ID       0xAB01
+#define PRODUCT_ID      0x6D74
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    ABplus Inc.
-#define PRODUCT         caca062%
-#define DESCRIPTION     ABplus cacao62%
+#define PRODUCT         matagi
+#define DESCRIPTION     ABplus matagi
 
 /* key matrix size */
-#define MATRIX_ROWS 6
+#define MATRIX_ROWS 5
 #define MATRIX_COLS 16
 
 /*
@@ -163,7 +163,7 @@
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
-//#define DEBUG_ACTION 1
+#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM

@@ -39,13 +39,13 @@ void matrix_init_custom(void) {
     debug_enable = true;
 
     expander_init(expanders, MATRIX_ROWS);
-    dprint("expanders initialized\n");
+//    dprint("expanders initialized\n");
 }
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = false;
 
-    dprint("matrix_scan_custom");
+//    dprint("matrix_scan_custom");
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
         matrix_row_t last_row = current_matrix[i];
         matrix_row_t current_row = expander_readPins(&expanders[i]);
