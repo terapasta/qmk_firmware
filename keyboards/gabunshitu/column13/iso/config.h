@@ -68,13 +68,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGBLIGHT_HUE_STEP 8
 #    define RGBLIGHT_SAT_STEP 8
 #    define RGBLIGHT_VAL_STEP 8
-#    define RGBLIGHT_LIMIT_VAL 200 /* The maximum brightness level */
+#    define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
 //#    define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
 //#    define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
-#    define RGBLIGHT_EFFECT_BREATHING
-//#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
+//#    define RGBLIGHT_EFFECT_BREATHING
+//#    define RGBLIGHT_EFFECTi_RAINBOW_MOOD
 //#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 //#    define RGBLIGHT_EFFECT_SNAKE
 //#    define RGBLIGHT_EFFECT_KNIGHT
@@ -151,7 +151,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
 
-#define DEBUG_ACTION 1
+//#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM
