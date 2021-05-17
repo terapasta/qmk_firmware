@@ -22,10 +22,16 @@ enum layer_number {
     _FUNCS
 };
 
+
+#define CMD_Z LGUI(KC_Z)
+#define CMD_X LGUI(KC_X)
+#define CMD_C LGUI(KC_C)
+#define CMD_V LGUI(KC_V)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Base */
 [_QWERTY] = LAYOUT(
-    KC_1, KC_2, KC_3, KC_4,
+            CMD_Z,  CMD_X,  CMD_C,  CMD_V,
             KC_PGUP,                    KC_UP,
     KC_HOME,KC_DEL, KC_END,     KC_LEFT,KC_ESC, KC_RIGHT,
             KC_PGDN,                    KC_DOWN

@@ -1,4 +1,4 @@
-# starter
+# ミニ丸スターター・キット
 
 ![starter](https://lab.abplus.com/content/images/size/w1600/2021/05/DSC_0083.JPG)
 
