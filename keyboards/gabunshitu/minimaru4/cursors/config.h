@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID   0xC509
 #define DEVICE_VER   0x0001
 #define MANUFACTURER ABplus Inc. kazhida
-#define PRODUCT      Minimaru Cursors
+#define PRODUCT      Minimaru-cursors
 
 /* key matrix size */
 #define MATRIX_ROWS 1
