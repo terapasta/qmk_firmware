@@ -8,7 +8,7 @@ enum layer_number {
 };
 
 #define KL_EISU LT(_LOWER, KC_LANG2)
-#define KS_KANA RSFT(KC_LANG1)
+#define KS_KANA RSFT_T(KC_LANG1)
 
 #define c(kc) LGUI(kc)
 //#define cmd(kc) LCTL(kc)
