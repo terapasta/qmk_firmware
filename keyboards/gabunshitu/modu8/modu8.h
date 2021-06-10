@@ -32,17 +32,13 @@
     key200, key201, key202, key203, key204, key205, key206, key207, key208, key209, key210, key211, key212, key213, key214, key215, \
     key300, key301, key302, key303, key304, key305, key306, key307, key308, key309, key310, key311, key312, key313, key314, key315, \
     key400, key401, key402, key403, key404, key405, key406, key407, key408, key409, key410, key411, key412, key413, key414, key415, \
-    key500, key501, key502, key503, key504, key505, key506, key507, key508, key509, key510, key511, key512, key513, key514, key515, \
-    key600, key601, key602, key603, key604, key605, key606, key607, key608, key609, key610, key611, key612, key613, key614, key615, \
-    key700, key701, key702, key703, key704, key705, key706, key707, key708, key709, key710, key711, key712, key713, key714, key715 \
+    key500, key501, key502, key503, key504, key505, key506, key507, key508, key509, key510, key511, key512, key513, key514, key515 \
 ) { \
     {   key000, key001, key002, key003, key004, key005, key006, key007, key008, key009, key010, key011, key012, key013, key014, key015  }, \
     {   key100, key101, key102, key103, key104, key105, key106, key107, key108, key109, key110, key111, key112, key113, key114, key115  }, \
     {   key200, key201, key202, key203, key204, key205, key206, key207, key208, key209, key210, key211, key212, key213, key214, key215  }, \
     {   key300, key301, key302, key303, key304, key305, key306, key307, key308, key309, key310, key311, key312, key313, key314, key315  }, \
     {   key400, key401, key402, key403, key404, key405, key406, key407, key408, key409, key410, key411, key412, key413, key414, key415  }, \
-    {   key500, key501, key502, key503, key504, key505, key506, key507, key508, key509, key510, key511, key512, key513, key514, key515  }, \
-    {   key600, key601, key602, key603, key604, key605, key606, key607, key608, key609, key610, key611, key612, key613, key614, key615  }, \
-    {   key700, key701, key702, key703, key704, key705, key706, key707, key708, key709, key710, key711, key712, key713, key714, key715  } \
+    {   key500, key501, key502, key503, key504, key505, key506, key507, key508, key509, key510, key511, key512, key513, key514, key515  } \
 }
 
