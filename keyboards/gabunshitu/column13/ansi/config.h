@@ -20,14 +20,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
+#define VENDOR_ID    0xAB01
+#define PRODUCT_ID   0xC130
 #define DEVICE_VER   0x0001
-#define MANUFACTURER ABplus Inc. kazhida
-#define PRODUCT      Column13 original
+#define MANUFACTURER ABplus
+#define PRODUCT      Column13-ansi
 
 /* key matrix size */
-#define MATRIX_ROWS 6
+#define MATRIX_ROWS 4
 #define MATRIX_COLS 16
 
 /*
@@ -151,7 +151,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
 
-#define DEBUG_ACTION 1
+//#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM
