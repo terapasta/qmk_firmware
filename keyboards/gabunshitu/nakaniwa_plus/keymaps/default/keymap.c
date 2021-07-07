@@ -43,8 +43,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         c(KC_GRV),  c(KC_1),c(KC_2),c(KC_3),c(KC_4),c(KC_5),c(KC_6),        c(KC_6),c(KC_7),c(KC_8),   c(KC_9),   c(KC_0),  c(KC_MINS), c(KC_EQL),  c(KC_BSPC), _______,        _______,_______,
         c(KC_TAB),  c(KC_Q),c(KC_W),c(KC_E),c(KC_R),c(KC_T),                c(KC_Y),c(KC_U),c(KC_I),   c(KC_O),   c(KC_P),  c(KC_LBRC), c(KC_RBRC), c(KC_BSLS),                 _______,_______,
         c(KC_LCTL), c(KC_A),c(KC_S),c(KC_D),c(KC_F),c(KC_G),                c(KC_H),c(KC_J),c(KC_K),   c(KC_L),   c(KC_SCLN),c(KC_QUOT),c(KC_ENT),                              _______,_______,
-        c(KC_LSFT), c(KC_Z),c(KC_X),c(KC_C),c(KC_V),c(KC_B),        c(KC_B),c(KC_N),c(KC_M),c(KC_COMM),c(KC_DOT), c(KC_SLSH),_______,_______,                                   _______,_______,
-        _______,   _______,_______,c(KC_DEL),_______,_______,               _______,_______,c(KC_SPC), c(KC_SPC), c(KC_SPC), _______,                                   _______,_______,_______
+        c(KC_LSFT), c(KC_Z),c(KC_X),c(KC_C),c(KC_V),c(KC_B),        c(KC_B),c(KC_N),c(KC_M),c(KC_COMM),c(KC_DOT), c(KC_SLSH),_______,_______,                                   KC_PGUP,_______,
+        _______,   _______,_______,c(KC_DEL),_______,_______,               _______,_______,c(KC_SPC), c(KC_SPC), c(KC_SPC), _______,                                   KC_HOME,KC_PGDN,KC_END
 ),
 [_RAISE] = LAYOUT(
         o(KC_ESC),  _______,_______,_______,_______,_______,_______,        _______,_______,_______,   _______,   _______,  _______,    _______,    _______,            _______,_______,_______,
