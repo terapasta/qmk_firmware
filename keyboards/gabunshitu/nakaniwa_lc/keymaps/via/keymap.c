@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
     KC_TILD,KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    _______,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS, KC_PLUS,KC_PIPE,KC_TILD,
     _______,sft(KC_Q),  sft(KC_W),  sft(KC_E),  sft(KC_R),  sft(KC_T),              sft(KC_Y),  sft(KC_U),  sft(KC_I),  sft(KC_O),  sft(KC_P),  KC_LCBR,KC_RCBR,sft(KC_BSPC),
-    _______,sft(KC_A),  sft(KC_S),  sft(KC_D),  sft(KC_F),  sft(KC_G),              sft(KC_H),  sft(KC_J),  sft(KC_K),  sft(KC_L),  KC_PLUS,    KC_ASTR,sft(KC_ENT),
+    _______,sft(KC_A),  sft(KC_S),  sft(KC_D),  sft(KC_F),  sft(KC_G),              sft(KC_H),  sft(KC_J),  sft(KC_K),  sft(KC_L),  KC_COLN,    KC_QUOT,sft(KC_ENT),
     _______,sft(KC_Z),  sft(KC_X),  sft(KC_C),  sft(KC_V),  sft(KC_B),      _______,sft(KC_N),  sft(KC_M),  KC_LABK,    KC_RABK,    KC_QUES,    _______,KC_PGUP,_______,
     _______,_______,_______,_______,_______,                                        _______,    _______,    _______,    _______,    _______,    KC_HOME,KC_PGDN,KC_END
 ),
