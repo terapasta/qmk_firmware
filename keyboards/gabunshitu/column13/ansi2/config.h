@@ -1,5 +1,5 @@
 /*
-Copyright 2021 ABplus Inc. kazhida
+Copyright 2021 kazhida
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,10 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID    0xAB01
-#define PRODUCT_ID   0xC131
-#define DEVICE_VER   0x0010
+#define PRODUCT_ID   0xC130
+#define DEVICE_VER   0x0002
 #define MANUFACTURER ABplus
-#define PRODUCT      Column13-iso
+#define PRODUCT      Column13-ansi2
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
-//#define LED_NUM_LOCK_PIN D3
+//#define LED_NUM_LOCK_PIN B0
 //#define LED_CAPS_LOCK_PIN B1
 //#define LED_SCROLL_LOCK_PIN B2
 //#define LED_COMPOSE_PIN B3
@@ -64,7 +64,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_DI_PIN D3
 #ifdef RGB_DI_PIN
-#    define RGBLED_NUM 47
+#    define RGBLED_NUM 46
 #    define RGBLIGHT_HUE_STEP 8
 #    define RGBLIGHT_SAT_STEP 8
 #    define RGBLIGHT_VAL_STEP 8
@@ -74,7 +74,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
 //#    define RGBLIGHT_EFFECT_BREATHING
-//#    define RGBLIGHT_EFFECTi_RAINBOW_MOOD
+//#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
 //#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 //#    define RGBLIGHT_EFFECT_SNAKE
 //#    define RGBLIGHT_EFFECT_KNIGHT
