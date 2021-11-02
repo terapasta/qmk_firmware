@@ -1,7 +1,7 @@
 {
   "name": "Column13 ansi",
-  "vendorId": "0xFEED",
-  "productId": "0x0000",
+  "vendorId": "0xAB01",
+  "productId": "0xC130",
   "lighting": "qmk_rgblight",
   "matrix": { "rows": 4, "cols": 16 },
   "layouts": {
