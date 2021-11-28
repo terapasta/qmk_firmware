@@ -21,13 +21,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID    0xAB01
-#define PRODUCT_ID   0xC070
+#define PRODUCT_ID   0xC170
 #define DEVICE_VER   0x0001
 #define MANUFACTURER ABplus
-#define PRODUCT      Column7-ansi
+#define PRODUCT      Column17-ansi
 
 /* key matrix size */
-#define MATRIX_ROWS 4
+#define MATRIX_ROWS 5
 #define MATRIX_COLS 16
 
 /*
@@ -62,14 +62,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-#define RGB_DI_PIN D3
-#ifdef RGB_DI_PIN
-#    define RGBLED_NUM 50
-#    define RGBLIGHT_HUE_STEP 8
-#    define RGBLIGHT_SAT_STEP 8
-#    define RGBLIGHT_VAL_STEP 8
-#    define RGBLIGHT_LIMIT_VAL 120 /* The maximum brightness level */
-#    define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+//#define RGB_DI_PIN E2
+//#ifdef RGB_DI_PIN
+//#    define RGBLED_NUM 16
+//#    define RGBLIGHT_HUE_STEP 8
+//#    define RGBLIGHT_SAT_STEP 8
+//#    define RGBLIGHT_VAL_STEP 8
+//#    define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+//#    define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
 //#    define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
@@ -88,7 +88,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*==== use exp() and sin() ====*/
 //#    define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
 //#    define RGBLIGHT_EFFECT_BREATHE_MAX    255   // 0 to 255
-#endif
+//#endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -151,7 +151,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
 
-#define DEBUG_ACTION 1
+//#define DEBUG_ACTION 1
 #define USE_I2C 1
 
 #undef TAPPING_TERM

@@ -41,10 +41,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTRL,   KC_LALT,KC_LGUI,KC_SPC,KL_EISU,                     KL_KANA,KC_SPC, KC_SPC, KC_SPC,         KC_RSFT,KC_LEFT,KC_DOWN,KC_RIGHT
 ),
 [_LOWER] = LAYOUT(
-    KC_GRV, KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      _______,    KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12, _______,_______,
-    _______,cmd(KC_Q),  cmd(KC_W),  cmd(KC_E),  cmd(KC_R),  cmd(KC_T),              cmd(KC_Y),  cmd(KC_U),  KC_PSCR,    KC_SLCK,    KC_PAUS,    _______,    _______,cmd(KC_BSPC),
-    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),              cmd(KC_H),  KC_INS,     KC_HOME,    KC_PGUP,    _______,    _______,    cmd(KC_ENT),
-    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),     _______, cmd(KC_N),  KC_DEL,     KC_END,     KC_PGDN,    cmd(KC_SLSH),_______,   KC_PGUP,_______,
+    KC_GRV, KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      _______,    KC_F6,      KC_F7,      KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12, _______,_______,
+    _______,cmd(KC_Q),  cmd(KC_W),  cmd(KC_E),  cmd(KC_R),  cmd(KC_T),              cmd(KC_Y),  cmd(KC_U),  cmd(KC_I),      cmd(KC_O),      cmd(KC_P),      cmd(KC_LBRC),   cmd(KC_RBRC),cmd(KC_BSPC),
+    _______,cmd(KC_A),  cmd(KC_S),  cmd(KC_D),  cmd(KC_F),  cmd(KC_G),              cmd(KC_H),  cmd(KC_J),  cmd(KC_K),      cmd(KC_L),      cmd(KC_SCLN),   cmd(KC_QUOT),   cmd(KC_ENT),
+    _______,cmd(KC_Z),  cmd(KC_X),  cmd(KC_C),  cmd(KC_V),  cmd(KC_B),     _______, cmd(KC_N),  cmd(KC_M),  cmd(KC_COMM),   cmd(KC_DOT),    cmd(KC_SLSH),   _______,        KC_PGUP,_______,
     _______,_______,_______,_______,_______,                                        _______,    _______,    _______,    _______,    _______,    KC_HOME,KC_PGDN, KC_END
 ),
 [_RAISE] = LAYOUT(
